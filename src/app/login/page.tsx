@@ -25,7 +25,7 @@ import {
 } from '@/components/ui/form';
 
 const loginSchema = z.object({
-  ieeeId: z.string().email({ message: 'Please enter a valid email for the IEEE ID.' }),
+  email: z.string().email({ message: 'Please enter a valid email.' }),
   password: z.string().min(6, { message: 'Password must be at least 6 characters' }),
   keepLoggedIn: z.boolean().optional(),
 });
@@ -38,7 +38,7 @@ export default function LoginPage() {
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      ieeeId: '',
+      email: '',
       password: '',
       keepLoggedIn: false,
     },
@@ -47,7 +47,7 @@ export default function LoginPage() {
   const onSubmit = async (data: LoginFormValues) => {
     setIsLoading(true);
     try {
-      await signInWithEmailAndPassword(auth, data.ieeeId, data.password);
+      await signInWithEmailAndPassword(auth, data.email, data.password);
       toast({ title: 'Login Successful', description: "You're now logged in." });
       router.push('/dashboard');
     } catch (error: any) {
@@ -115,10 +115,10 @@ export default function LoginPage() {
                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                      <FormField
                        control={form.control}
-                       name="ieeeId"
+                       name="email"
                        render={({ field }) => (
                          <FormItem>
-                           <FormLabel className="text-muted-foreground">IEEE ID (Email)</FormLabel>
+                           <FormLabel className="text-muted-foreground">Email</FormLabel>
                            <FormControl>
                              <Input
                                type="email"

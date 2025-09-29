@@ -6,11 +6,12 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+import { auth, db } from '@/lib/firebase';
+import { setDoc, doc } from 'firebase/firestore';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from '@/hooks/use-toast';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import Link from 'next/link';
 import {
   Form,
@@ -23,7 +24,8 @@ import {
 
 const registerSchema = z.object({
   name: z.string().min(1, { message: 'Name is required' }),
-  ieeeId: z.string().email({ message: 'Please enter a valid email for the IEEE ID.' }),
+  ieeeId: z.string().min(1, { message: 'IEEE ID is required' }),
+  email: z.string().email({ message: 'Please enter a valid email.' }),
   password: z.string().min(6, { message: 'Password must be at least 6 characters' }),
 });
 
@@ -37,6 +39,7 @@ export default function RegisterPage() {
     defaultValues: {
       name: '',
       ieeeId: '',
+      email: '',
       password: '',
     },
   });
@@ -44,10 +47,20 @@ export default function RegisterPage() {
   const onSubmit = async (data: RegisterFormValues) => {
     setIsLoading(true);
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, data.ieeeId, data.password);
-      await updateProfile(userCredential.user, {
+      const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
+      const user = userCredential.user;
+      
+      await updateProfile(user, {
         displayName: data.name
       });
+
+      // Store additional user info in Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        name: data.name,
+        email: data.email,
+        ieeeId: data.ieeeId,
+      });
+
       toast({ title: 'Registration Successful', description: "You can now log in." });
       router.push('/login');
     } catch (error: any) {
@@ -103,7 +116,26 @@ export default function RegisterPage() {
                        name="ieeeId"
                        render={({ field }) => (
                          <FormItem>
-                           <FormLabel className="text-muted-foreground">IEEE ID (Email)</FormLabel>
+                           <FormLabel className="text-muted-foreground">IEEE ID (Number)</FormLabel>
+                           <FormControl>
+                             <Input
+                               type="text"
+                               placeholder="99999999"
+                               {...field}
+                               disabled={isLoading}
+                               className="bg-muted/50 border-0 focus:bg-card"
+                             />
+                           </FormControl>
+                           <FormMessage />
+                         </FormItem>
+                       )}
+                     />
+                     <FormField
+                       control={form.control}
+                       name="email"
+                       render={({ field }) => (
+                         <FormItem>
+                           <FormLabel className="text-muted-foreground">Email</FormLabel>
                            <FormControl>
                              <Input
                                type="email"
