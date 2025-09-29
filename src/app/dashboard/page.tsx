@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { PlusCircle } from 'lucide-react';
 
 export default function DashboardPage() {
-  const { user, loading, signOut } = useAuth();
+  const { user, firestoreUser, isOfficeBearer, loading, signOut } = useAuth();
 
   if (loading) {
     return <div className="flex h-screen items-center justify-center">Loading...</div>;
@@ -35,16 +35,18 @@ export default function DashboardPage() {
         <div className="container mx-auto">
           <div className="mb-8 flex items-center justify-between">
             <h2 className="text-2xl font-bold">Your Space</h2>
-            <Button asChild>
-              <Link href="/dashboard/add-event">
-                <PlusCircle className="mr-2 h-4 w-4" />
-                Add New Event
-              </Link>
-            </Button>
+            {isOfficeBearer && (
+              <Button asChild>
+                <Link href="/dashboard/add-event">
+                  <PlusCircle className="mr-2 h-4 w-4" />
+                  Add New Event
+                </Link>
+              </Button>
+            )}
           </div>
             <Card className="glass-card">
                 <CardHeader>
-                    <CardTitle>Welcome, {user.displayName || user.email}</CardTitle>
+                    <CardTitle>Welcome, {firestoreUser?.name || user.email}</CardTitle>
                     <CardDescription>This is your member dashboard. More features coming soon!</CardDescription>
                 </CardHeader>
                 <CardContent>
