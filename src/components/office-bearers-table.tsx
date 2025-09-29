@@ -12,7 +12,7 @@ export function OfficeBearersTable() {
   return (
     <div className="rounded-lg border overflow-hidden bg-card">
         <h2 className="text-3xl md:text-4xl font-bold font-headline text-center my-8 md:my-12 text-primary">
-            IEEE STUDENT BRANCH OFFICE BEARERS – 2025-26
+            IEEE STUDENT BRANCH OFFICE BEARERS – 2024-25
         </h2>
       <Table>
         <TableHeader>

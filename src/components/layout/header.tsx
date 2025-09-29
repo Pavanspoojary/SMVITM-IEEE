@@ -45,7 +45,7 @@ export function Header() {
 
         <div className="flex-1 flex justify-center">
             <Image 
-                src="https://storage.googleapis.com/aai-web-samples/logo-smvitm.png"
+                src="/logo-smvitm.png"
                 alt="SMVITM Logo"
                 width={80}
                 height={80}
