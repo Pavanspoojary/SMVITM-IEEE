@@ -55,7 +55,7 @@ export function Header() {
                   <stop offset="0%" style={{ stopColor: 'hsl(var(--primary))', stopOpacity: 1 }} />
                   <stop offset="100%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
                 </linearGradient>
-                 <path id="curve" d="M 25 60 A 30 30 0 0 1 75 60" />
+                 <path id="curve" d="M 25 55 A 30 30 0 0 1 75 55" />
               </defs>
               <path
                 fill="url(#logo-gradient)"
@@ -63,7 +63,7 @@ export function Header() {
               />
               <text
                 fontFamily="Inter, sans-serif"
-                fontSize="20"
+                fontSize="18"
                 fontWeight="bold"
                 fill="blue"
                 textAnchor="middle"
