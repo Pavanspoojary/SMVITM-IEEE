@@ -37,10 +37,23 @@ export function Header() {
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center font-bold text-xl text-primary">
-          SMVITM-IEEE
-        </Link>
-        <div className="flex items-center gap-2">
+        <div className="flex-1">
+            <Link href="/" className="flex items-center font-bold text-xl text-primary">
+                SMVITM-IEEE
+            </Link>
+        </div>
+
+        <div className="flex-1 flex justify-center">
+            <Image 
+                src="https://storage.googleapis.com/aai-web-samples/logo-smvitm.png"
+                alt="SMVITM Logo"
+                width={80}
+                height={80}
+                className="object-contain"
+            />
+        </div>
+
+        <div className="flex flex-1 items-center justify-end gap-2">
            <Button asChild variant="outline" size="sm">
             <Link href="/login">
               <LogIn className="mr-2 h-4 w-4" />
