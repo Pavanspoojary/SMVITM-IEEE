@@ -46,6 +46,7 @@ export function Footer() {
                 <li><a href="#about" className="hover:text-white">About Us</a></li>
                 <li><a href="#events" className="hover:text-white">Events</a></li>
                 <li><a href="#achievements" className="hover:text-white">Achievements</a></li>
+                <li><a href="#office-bearers" className="hover:text-white">Office Bearers</a></li>
                 <li><a href="#publications" className="hover:text-white">Publications</a></li>
                 <li><a href="#news" className="hover:text-white">News</a></li>
               </ul>

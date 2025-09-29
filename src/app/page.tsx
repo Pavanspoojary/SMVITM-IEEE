@@ -13,6 +13,7 @@ import { NewsCard } from '@/components/news-card';
 import { AchievementCard } from '@/components/achievement-card';
 import { PublicationCard } from '@/components/publication-card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { OfficeBearersTable } from '@/components/office-bearers-table';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -20,6 +21,7 @@ const navLinks = [
   { href: '#achievements', label: 'Achievements' },
   { href: '#publications', label: 'Publications' },
   { href: '#news', label: 'News' },
+  { href: '#office-bearers', label: 'Office Bearers' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -128,6 +130,13 @@ export default function Home() {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* Office Bearers Section */}
+        <section id="office-bearers" className="py-16 md:py-24 bg-background">
+            <div className="container mx-auto px-4 md:px-6">
+                <OfficeBearersTable />
+            </div>
         </section>
 
         {/* Publications Section */}

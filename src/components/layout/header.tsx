@@ -13,7 +13,7 @@ const navLinks = [
   { href: '#achievements', label: 'Achievements' },
   { href: '#publications', label: 'Publications' },
   { href: '#news', label: 'News' },
-  { href: '#team', label: 'Team' },
+  { href: '#office-bearers', label: 'Office Bearers' },
   { href: '#contact', label: 'Contact' },
 ];
 
