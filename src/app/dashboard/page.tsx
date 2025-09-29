@@ -44,7 +44,7 @@ export default function DashboardPage() {
           </div>
             <Card className="glass-card">
                 <CardHeader>
-                    <CardTitle>Welcome, {user.email}</CardTitle>
+                    <CardTitle>Welcome, {user.displayName || user.email}</CardTitle>
                     <CardDescription>This is your member dashboard. More features coming soon!</CardDescription>
                 </CardHeader>
                 <CardContent>

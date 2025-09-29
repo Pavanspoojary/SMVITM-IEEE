@@ -15,6 +15,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import Link from 'next/link';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ChromeIcon, FacebookIcon, TwitterIcon } from 'lucide-react';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
 
 const loginSchema = z.object({
   email: z.string().email({ message: 'Invalid email address' }),
@@ -28,12 +36,14 @@ type LoginFormValues = z.infer<typeof loginSchema>;
 export default function LoginPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginFormValues>({
+  const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: '',
+      ieeeId: '',
+      password: '',
+      keepLoggedIn: false,
+    },
   });
 
   const onSubmit = async (data: LoginFormValues) => {
@@ -103,59 +113,94 @@ export default function LoginPage() {
             {/* Right Panel - Form */}
             <div className="bg-background/50 p-8 md:p-12">
                  <h2 className="text-3xl font-bold mb-8 text-foreground">Log in</h2>
-                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="space-y-6">
-                        <div className="space-y-2">
-                        <Label htmlFor="email" className="text-muted-foreground">Email</Label>
-                        <Input
-                            id="email"
-                            type="email"
-                            placeholder="m@example.com"
-                            {...register('email')}
-                            disabled={isLoading}
-                            className="bg-muted/50 border-0 focus:bg-card"
-                        />
-                        {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
-                        </div>
-                        <div className="space-y-2">
-                        <Label htmlFor="ieeeId" className="text-muted-foreground">IEEE ID</Label>
-                        <Input
-                            id="ieeeId"
-                            type="text"
-                            placeholder="Enter your IEEE ID"
-                            {...register('ieeeId')}
-                            disabled={isLoading}
-                            className="bg-muted/50 border-0 focus:bg-card"
-                        />
-                        {errors.ieeeId && <p className="text-sm text-destructive">{errors.ieeeId.message}</p>}
-                        </div>
-                        <div className="space-y-2">
-                        <Label htmlFor="password" className="text-muted-foreground">Password</Label>
-                        <Input
-                            id="password"
-                            type="password"
-                            {...register('password')}
-                            disabled={isLoading}
-                             className="bg-muted/50 border-0 focus:bg-card"
-                        />
-                        {errors.password && <p className="text-sm text-destructive">{errors.password.message}</p>}
-                        </div>
-
-                         <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2">
-                                <Checkbox id="keep-logged-in" {...register('keepLoggedIn')} />
-                                <Label htmlFor="keep-logged-in" className="text-sm font-normal text-muted-foreground">Keep me logged in</Label>
+                 <Form {...form}>
+                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                     <FormField
+                       control={form.control}
+                       name="email"
+                       render={({ field }) => (
+                         <FormItem>
+                           <FormLabel className="text-muted-foreground">Email</FormLabel>
+                           <FormControl>
+                             <Input
+                               type="email"
+                               placeholder="m@example.com"
+                               {...field}
+                               disabled={isLoading}
+                               className="bg-muted/50 border-0 focus:bg-card"
+                             />
+                           </FormControl>
+                           <FormMessage />
+                         </FormItem>
+                       )}
+                     />
+                     <FormField
+                       control={form.control}
+                       name="ieeeId"
+                       render={({ field }) => (
+                         <FormItem>
+                           <FormLabel className="text-muted-foreground">IEEE ID</FormLabel>
+                           <FormControl>
+                             <Input
+                               type="text"
+                               placeholder="Enter your IEEE ID"
+                               {...field}
+                               disabled={isLoading}
+                               className="bg-muted/50 border-0 focus:bg-card"
+                             />
+                           </FormControl>
+                           <FormMessage />
+                         </FormItem>
+                       )}
+                     />
+                     <FormField
+                       control={form.control}
+                       name="password"
+                       render={({ field }) => (
+                         <FormItem>
+                           <FormLabel className="text-muted-foreground">Password</FormLabel>
+                           <FormControl>
+                             <Input
+                               type="password"
+                               {...field}
+                               disabled={isLoading}
+                               className="bg-muted/50 border-0 focus:bg-card"
+                             />
+                           </FormControl>
+                           <FormMessage />
+                         </FormItem>
+                       )}
+                     />
+                     <FormField
+                       control={form.control}
+                       name="keepLoggedIn"
+                       render={({ field }) => (
+                         <FormItem className="flex flex-row items-start space-x-3 space-y-0 justify-between">
+                            <div className='flex items-center space-x-2'>
+                              <FormControl>
+                                <Checkbox
+                                  checked={field.value}
+                                  onCheckedChange={field.onChange}
+                                />
+                              </FormControl>
+                              <div className="space-y-1 leading-none">
+                                <FormLabel className='text-sm font-normal text-muted-foreground'>
+                                  Keep me logged in
+                                </FormLabel>
+                              </div>
                             </div>
-                             <Link href="#" className="text-sm text-primary hover:underline">
-                                Forgot your password?
-                            </Link>
-                        </div>
-                    </div>
-                    
-                    <Button type="submit" className="w-full mt-8 h-12 text-base font-bold bg-primary hover:bg-primary/90" disabled={isLoading}>
-                        {isLoading ? 'Logging in...' : 'Log in now'}
-                    </Button>
-                 </form>
+                           <Link href="#" className="text-sm text-primary hover:underline">
+                             Forgot your password?
+                           </Link>
+                         </FormItem>
+                       )}
+                     />
+                     
+                     <Button type="submit" className="w-full mt-8 h-12 text-base font-bold bg-primary hover:bg-primary/90" disabled={isLoading}>
+                         {isLoading ? 'Logging in...' : 'Log in now'}
+                     </Button>
+                   </form>
+                 </Form>
 
                  <div className="relative my-8">
                     <div className="absolute inset-0 flex items-center">
