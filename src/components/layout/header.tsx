@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Menu, X, LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -57,18 +56,6 @@ export function Header() {
             <span className="text-2xl font-black">FLARE</span>
         </Link>
         
-
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-            {navLinks.map((link) => (
-                <Link
-                key={link.href}
-                href={link.href}
-                className="text-foreground/70 hover:text-foreground transition-colors"
-                >
-                {link.label}
-                </Link>
-            ))}
-        </nav>
 
         <div className="flex items-center justify-end gap-2">
            <Button asChild variant="default" size="sm" className="rounded-full bg-primary hover:bg-primary/90">
