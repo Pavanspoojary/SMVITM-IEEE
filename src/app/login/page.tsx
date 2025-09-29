@@ -16,6 +16,7 @@ import Link from 'next/link';
 
 const loginSchema = z.object({
   email: z.string().email({ message: 'Invalid email address' }),
+  ieeeId: z.string().min(1, { message: 'IEEE ID is required' }),
   password: z.string().min(6, { message: 'Password must be at least 6 characters' }),
 });
 
@@ -35,6 +36,8 @@ export default function LoginPage() {
   const onSubmit = async (data: LoginFormValues) => {
     setIsLoading(true);
     try {
+      // Note: Firebase auth still only uses email and password.
+      // The IEEE ID would need custom logic to be verified, which we can add next.
       await signInWithEmailAndPassword(auth, data.email, data.password);
       toast({ title: 'Login Successful', description: "You're now logged in." });
       router.push('/dashboard');
@@ -74,6 +77,17 @@ export default function LoginPage() {
                 disabled={isLoading}
               />
               {errors.email && <p className="text-sm text-destructive">{errors.email.message}</p>}
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="ieeeId">IEEE ID</Label>
+              <Input
+                id="ieeeId"
+                type="text"
+                placeholder="Enter your IEEE ID"
+                {...register('ieeeId')}
+                disabled={isLoading}
+              />
+              {errors.ieeeId && <p className="text-sm text-destructive">{errors.ieeeId.message}</p>}
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
