@@ -57,8 +57,12 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 md:py-32">
-          <div className="container mx-auto px-4 md:px-6">
+        <section id="about" className="relative py-20 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-black">
+              <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background"></div>
+              <div className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,255,255,0.1)_0%,_rgba(0,0,0,0)_60%)]"></div>
+          </div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">About SMVITM-IEEE</h2>
@@ -91,8 +95,12 @@ export default function Home() {
         </section>
 
         {/* Events Section */}
-        <section id="events" className="py-20 md:py-32">
-          <div className="container mx-auto px-4 md:px-6">
+        <section id="events" className="relative py-20 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-black">
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background"></div>
+              <div className="absolute -bottom-1/4 right-1/2 translate-x-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,255,255,0.1)_0%,_rgba(0,0,0,0)_60%)]"></div>
+          </div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16 text-foreground">
               Upcoming Events
             </h2>
@@ -105,8 +113,12 @@ export default function Home() {
         </section>
 
         {/* Societies Section */}
-        <section id="societies" className="py-20 md:py-32">
-          <div className="container mx-auto px-4 md:px-6">
+        <section id="societies" className="relative py-20 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-black">
+              <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background"></div>
+              <div className="absolute -top-1/4 left-1/4 w-[150%] h-[150%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,255,255,0.08)_0%,_rgba(0,0,0,0)_60%)]"></div>
+          </div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16 text-foreground">
               IEEE Societies
             </h2>
@@ -119,8 +131,12 @@ export default function Home() {
         </section>
 
         {/* Achievements Section */}
-        <section id="achievements" className="py-20 md:py-32">
-          <div className="container mx-auto px-4 md:px-6">
+        <section id="achievements" className="relative py-20 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-black">
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background"></div>
+              <div className="absolute -bottom-1/3 right-1/4 w-[150%] h-[150%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,255,255,0.08)_0%,_rgba(0,0,0,0)_60%)]"></div>
+          </div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16 text-foreground">
               Our Achievements
             </h2>
@@ -140,8 +156,12 @@ export default function Home() {
         </section>
 
         {/* Publications Section */}
-        <section id="publications" className="py-20 md:py-32">
-          <div className="container mx-auto px-4 md:px-6">
+        <section id="publications" className="relative py-20 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-black">
+              <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background"></div>
+              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,_rgba(0,255,255,0.1)_0%,_rgba(0,0,0,0)_60%)]"></div>
+          </div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16 text-foreground">
               Recent Publications
             </h2>
@@ -154,8 +174,12 @@ export default function Home() {
         </section>
 
         {/* News Section */}
-        <section id="news" className="py-20 md:py-32">
-          <div className="container mx-auto px-4 md:px-6">
+        <section id="news" className="relative py-20 md:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-black">
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background"></div>
+               <div className="absolute -bottom-1/2 left-1/2 -translate-x-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,255,255,0.1)_0%,_rgba(0,0,0,0)_60%)]"></div>
+          </div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16 text-foreground">
               News & Announcements
             </h2>
