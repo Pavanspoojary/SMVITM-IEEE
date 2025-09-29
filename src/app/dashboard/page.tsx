@@ -3,6 +3,8 @@
 import { useAuth } from '@/hooks/use-auth';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
+import { PlusCircle } from 'lucide-react';
 
 export default function DashboardPage() {
   const { user, loading, signOut } = useAuth();
@@ -26,6 +28,15 @@ export default function DashboardPage() {
 
       <main className="flex-1 p-4 md:p-8">
         <div className="container mx-auto">
+          <div className="mb-8 flex items-center justify-between">
+            <h2 className="text-2xl font-bold">Your Space</h2>
+            <Button asChild>
+              <Link href="/dashboard/add-event">
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Add New Event
+              </Link>
+            </Button>
+          </div>
             <Card>
                 <CardHeader>
                     <CardTitle>Welcome, {user.email}</CardTitle>
