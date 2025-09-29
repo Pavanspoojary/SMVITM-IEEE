@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Button } from '@/components/ui/button';
@@ -15,6 +16,17 @@ import { AchievementCard } from '@/components/achievement-card';
 import { PublicationCard } from '@/components/publication-card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
+const navLinks = [
+  { href: '#about', label: 'About' },
+  { href: '#events', label: 'Events' },
+  { href: '#achievements', label: 'Achievements' },
+  { href: '#publications', label: 'Publications' },
+  { href: '#news', label: 'News' },
+  { href: '#team', label: 'Team' },
+  { href: '#contact', label: 'Contact' },
+];
+
+
 export default function Home() {
   const aboutImage = PlaceHolderImages.find(p => p.id === 'about-us');
 
@@ -30,16 +42,29 @@ export default function Home() {
                 data-ai-hint="engineering circuit board"
             ></div>
              <div className="absolute inset-0 bg-primary/50 "></div>
-          <div className="relative z-10 container mx-auto px-4 md:px-6">
-            <h1 className="text-4xl md:text-6xl font-extrabold font-headline tracking-tight mb-4 animate-fade-in-down">
-              SMVITM-IEEE Student Branch
-            </h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto text-primary-foreground/80 mb-8 animate-fade-in-up">
-              Fostering Technological Innovation and Excellence
-            </p>
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 animate-fade-in">
-              Join Us <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+          <div className="relative z-10 container mx-auto px-4 md:px-6 flex flex-col h-full justify-between pt-24 pb-12">
+            <div className='flex flex-col items-center justify-center flex-grow'>
+                <h1 className="text-4xl md:text-6xl font-extrabold font-headline tracking-tight mb-4 animate-fade-in-down">
+                SMVITM-IEEE Student Branch
+                </h1>
+                <p className="text-lg md:text-xl max-w-3xl mx-auto text-primary-foreground/80 mb-8 animate-fade-in-up">
+                Fostering Technological Innovation and Excellence
+                </p>
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 animate-fade-in">
+                Join Us <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+            </div>
+            <nav className="hidden md:flex justify-center items-center gap-6 text-sm font-medium">
+                {navLinks.map((link) => (
+                    <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-primary-foreground/80 hover:text-white transition-colors"
+                    >
+                    {link.label}
+                    </Link>
+                ))}
+            </nav>
           </div>
         </section>
 

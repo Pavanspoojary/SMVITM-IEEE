@@ -41,17 +41,6 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
           <Image src="https://firebasestorage.googleapis.com/v0/b/studio-8253008489-748df.appspot.com/o/images%2Fsmvitm-logo.png?alt=media&token=a3b2b5f7-4638-4014-b803-34b7f8045620" alt="SMVITM Logo" width={64} height={64} className="h-16 w-auto" />
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-foreground/80 hover:text-primary transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
         <div className="flex items-center gap-2">
            <Button asChild variant="outline" size="sm">
             <Link href="/login">
