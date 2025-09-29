@@ -1,10 +1,12 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, BotMessageSquare, LogIn } from 'lucide-react';
+import { Menu, X, LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -37,8 +39,8 @@ export function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
-          <BotMessageSquare className="h-7 w-7" />
-          <span className='font-headline'>SMVITM-IEEE Portal</span>
+          <Image src="https://firebasestorage.googleapis.com/v0/b/studio-8253008489-748df.appspot.com/o/images%2Fsmvitm-logo.png?alt=media&token=a3b2b5f7-4638-4014-b803-34b7f8045620" alt="SMVITM Logo" width={48} height={48} className="h-12 w-auto" />
+          <span className='font-headline'>SMVITM-IEEE</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
