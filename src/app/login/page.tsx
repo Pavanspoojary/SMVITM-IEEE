@@ -5,8 +5,16 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  TwitterAuthProvider,
+  AuthProvider,
+} from 'firebase/auth';
+import { auth, db } from '@/lib/firebase';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -61,6 +69,52 @@ export default function LoginPage() {
       setIsLoading(false);
     }
   };
+
+  const handleSocialLogin = async (provider: AuthProvider) => {
+    setIsLoading(true);
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      // Check if user exists in Firestore, if not, create a new document
+      const userDocRef = doc(db, 'users', user.uid);
+      const userDoc = await getDoc(userDocRef);
+
+      if (!userDoc.exists()) {
+        await setDoc(userDocRef, {
+          name: user.displayName,
+          email: user.email,
+          ieeeId: '', // IEEE ID is not available from social providers
+        });
+      }
+
+      toast({ title: 'Login Successful', description: `Welcome, ${user.displayName}` });
+      router.push('/dashboard');
+    } catch (error: any) {
+      console.error('Social login error:', error);
+
+      // Handle specific errors, e.g., account exists with different credential
+      if (error.code === 'auth/account-exists-with-different-credential') {
+        toast({
+          variant: 'destructive',
+          title: 'Login Failed',
+          description: 'An account already exists with the same email address but different sign-in credentials.',
+        });
+      } else {
+        toast({
+          variant: 'destructive',
+          title: 'Login Failed',
+          description: error.message || 'An unexpected error occurred. Please try again.',
+        });
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+  const twitterProvider = new TwitterAuthProvider();
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4 relative">
@@ -193,9 +247,9 @@ export default function LoginPage() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <Button variant="outline" className="h-12 border-border/80 text-muted-foreground"> <ChromeIcon className="mr-2"/> Google</Button>
-                    <Button variant="outline" className="h-12 border-border/80 text-muted-foreground"> <FacebookIcon className="mr-2"/> Facebook</Button>
-                    <Button variant="outline" className="h-12 border-border/80 text-muted-foreground"> <TwitterIcon className="mr-2"/> Twitter</Button>
+                    <Button variant="outline" className="h-12 border-border/80 text-muted-foreground" onClick={() => handleSocialLogin(googleProvider)} disabled={isLoading}> <ChromeIcon className="mr-2"/> Google</Button>
+                    <Button variant="outline" className="h-12 border-border/80 text-muted-foreground" onClick={() => handleSocialLogin(facebookProvider)} disabled={isLoading}> <FacebookIcon className="mr-2"/> Facebook</Button>
+                    <Button variant="outline" className="h-12 border-border/80 text-muted-foreground" onClick={() => handleSocialLogin(twitterProvider)} disabled={isLoading}> <TwitterIcon className="mr-2"/> Twitter</Button>
                 </div>
                  <p className="mt-8 text-center text-sm text-muted-foreground md:hidden">
                     Not a member yet?{' '}
