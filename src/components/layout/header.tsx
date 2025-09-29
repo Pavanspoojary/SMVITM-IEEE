@@ -62,21 +62,21 @@ export function Header() {
               />
               <text
                 x="50"
-                y="55"
+                y="58"
                 fontFamily="Inter, sans-serif"
-                fontSize="24"
+                fontSize="20"
                 fontWeight="bold"
                 fill="blue"
                 textAnchor="middle"
                 style={{ mixBlendMode: 'screen' }}
               >
-                SMV
+                SMVITM
               </text>
               <text
                 x="50"
                 y="75"
                 fontFamily="Inter, sans-serif"
-                fontSize="10"
+                fontSize="12"
                 fontWeight="bold"
                 fill="hsl(var(--primary-foreground))"
                 textAnchor="middle"
