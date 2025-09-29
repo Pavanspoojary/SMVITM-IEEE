@@ -74,13 +74,18 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4 text-primary">About SMVITM-IEEE</h2>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  The IEEE Student Branch at SMVITM is one of the most active student branches in the Mangalore Subsection. We are dedicated to providing students with opportunities for technical and professional development.
-                </p>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  We organize a wide range of events, including workshops, seminars, competitions, and industrial visits, to help students stay updated with the latest trends in technology and engineering. Our mission is to inspire innovation, encourage collaboration, and build a community of passionate learners.
-                </p>
-                <Button variant="link" className="text-accent p-0 h-auto font-semibold">
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    IEEE was founded in 1884 with Alexander Graham Bell and Thomas Edison among its charter members. Today, IEEE serves over 400,000 members worldwide. Over 100,000 Student and Graduate Student members worldwide make up 25% of the membership of IEEE and are essential to its continued growth and vitality. Not only is IEEE the world’s largest technical and professional society, it also publishes a significant amount of the electrical engineering and computer-science literature in the world.
+                  </p>
+                  <p>
+                    IEEE worldwide membership is geographically divided into ten Regions. These Regions are further divided into Sections that serve as the centers of activity for professional engineers at the local level. IEEE student branch of SMVITM (Code:STB10147) falls under Bangalore Section and Mangalore Sub Section in region 10.
+                  </p>
+                   <p>
+                    We organize a wide range of events, including workshops, seminars, competitions, and industrial visits, to help students stay updated with the latest trends in technology and engineering. Our mission is to inspire innovation, encourage collaboration, and build a community of passionate learners.
+                  </p>
+                </div>
+                 <Button variant="link" className="text-accent p-0 h-auto font-semibold mt-6">
                   Learn more about IEEE <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
