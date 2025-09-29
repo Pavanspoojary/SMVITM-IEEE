@@ -19,6 +19,7 @@ import { useRouter }from 'next/navigation';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { summarizeEventDetails } from '@/ai/flows/summarize-event-details';
+import { sendEventNotificationEmail } from '@/ai/flows/send-event-notification-email';
 
 
 const eventFormSchema = z.object({
@@ -66,14 +67,20 @@ export function AddEventForm() {
         createdAt: new Date(),
       });
       
-      // Here you would handle the file upload to a service like Firebase Storage
-      // and then save the event data (including image URLs) to your database.
+      // 3. Trigger notification flow
+      await sendEventNotificationEmail({
+        title: data.title,
+        date: format(data.date, "PPP"),
+        venue: data.venue,
+        summary: summaryResult.summary,
+      });
+
       console.log('Event data:', data);
 
 
       toast({
         title: 'Event Created Successfully',
-        description: `The event "${data.title}" has been added.`,
+        description: `The event "${data.title}" has been added and members have been notified.`,
       });
 
       router.push('/dashboard');
