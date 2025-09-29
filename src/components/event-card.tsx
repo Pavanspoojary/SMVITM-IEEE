@@ -11,9 +11,9 @@ type EventCardProps = {
 
 export function EventCard({ title, date, time, venue, description }: EventCardProps) {
   return (
-    <Card className="flex flex-col h-full transition-transform transform hover:-translate-y-1 hover:shadow-xl bg-background">
+    <Card className="flex flex-col h-full transition-transform transform hover:-translate-y-2 hover:shadow-primary/20 shadow-lg bg-card border-border/50">
       <CardHeader>
-        <CardTitle className="font-headline text-xl">{title}</CardTitle>
+        <CardTitle className="font-bold text-xl text-foreground">{title}</CardTitle>
       </CardHeader>
       <CardContent className="flex-grow flex flex-col gap-4">
         <div className="space-y-3 text-sm text-muted-foreground">
@@ -30,7 +30,7 @@ export function EventCard({ title, date, time, venue, description }: EventCardPr
             <span>{venue}</span>
           </div>
         </div>
-        <CardDescription className="flex-grow pt-2">{description}</CardDescription>
+        <CardDescription className="flex-grow pt-4 text-base">{description}</CardDescription>
       </CardContent>
     </Card>
   );

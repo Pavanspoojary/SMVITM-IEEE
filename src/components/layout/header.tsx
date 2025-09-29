@@ -15,7 +15,6 @@ const navLinks = [
   { href: '#publications', label: 'Publications' },
   { href: '#news', label: 'News' },
   { href: '#office-bearers', label: 'Office Bearers' },
-  { href: '#contact', label: 'Contact' },
 ];
 
 export function Header() {
@@ -38,15 +37,9 @@ export function Header() {
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <div className="flex-1">
-            <Link href="/" className="flex items-center font-bold text-xl text-primary">
-                SMVITM-IEEE
-            </Link>
-        </div>
-
-        <div className="flex-1 flex justify-center">
-            <svg
-              className="h-16 w-auto"
+        <Link href="/" className="flex items-center gap-2 font-bold text-xl text-foreground">
+             <svg
+              className="h-8 w-auto"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -55,44 +48,33 @@ export function Header() {
                   <stop offset="0%" style={{ stopColor: 'hsl(var(--primary))', stopOpacity: 1 }} />
                   <stop offset="100%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
                 </linearGradient>
-                 <path id="curve" d="M 25 55 A 30 30 0 0 1 75 55" />
               </defs>
               <path
                 fill="url(#logo-gradient)"
-                d="M50,5 A45,45 0 1,0 50,95 A45,45 0 1,0 50,5 Z M50,15 A35,35 0 1,1 50,85 A35,35 0 1,1 50,15 Z"
+                d="M50,5 A45,45 0 1,0 50,95 A45,45 0 1,0 50,5 Z"
               />
-              <text
-                fontFamily="Inter, sans-serif"
-                fontSize="18"
-                fontWeight="bold"
-                fill="blue"
-                textAnchor="middle"
-                style={{ mixBlendMode: 'screen' }}
-              >
-                <textPath href="#curve" startOffset="50%">
-                    SMVITM
-                </textPath>
-              </text>
-              <text
-                x="50"
-                y="75"
-                fontFamily="Inter, sans-serif"
-                fontSize="12"
-                fontWeight="bold"
-                fill="hsl(var(--primary-foreground))"
-                textAnchor="middle"
-                style={{ mixBlendMode: 'screen' }}
-              >
-                IEEE
-              </text>
             </svg>
-        </div>
+            <span className="text-2xl font-black">FLARE</span>
+        </Link>
+        
 
-        <div className="flex flex-1 items-center justify-end gap-2">
-           <Button asChild variant="outline" size="sm">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+            {navLinks.map((link) => (
+                <Link
+                key={link.href}
+                href={link.href}
+                className="text-foreground/70 hover:text-foreground transition-colors"
+                >
+                {link.label}
+                </Link>
+            ))}
+        </nav>
+
+        <div className="flex items-center justify-end gap-2">
+           <Button asChild variant="default" size="sm" className="rounded-full bg-primary hover:bg-primary/90">
             <Link href="/login">
-              <LogIn className="mr-2 h-4 w-4" />
-              Login
+              Contact Us
+              <LogIn className="ml-2 h-4 w-4" />
             </Link>
           </Button>
           <div className="md:hidden">

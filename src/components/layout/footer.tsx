@@ -11,51 +11,51 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-primary text-primary-foreground">
+    <footer id="contact" className="bg-card text-foreground">
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex flex-col gap-4">
              <Link href="/" className="flex items-center gap-2 font-bold text-xl">
                SMVITM-IEEE
             </Link>
-            <p className="text-primary-foreground/80 max-w-sm">
+            <p className="text-muted-foreground max-w-sm">
               Fostering technological innovation and professional growth among students at SMVITM.
             </p>
           </div>
           <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div>
               <h3 className="font-semibold mb-4 text-lg">Contact Us</h3>
-              <ul className="space-y-3 text-primary-foreground/80">
+              <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 mt-1 shrink-0" />
+                  <MapPin className="h-5 w-5 mt-1 shrink-0 text-primary" />
                   <span>Shri Madhwa Vadiraja Institute of Technology and Management, Bantakal, Udupi - 574115</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 shrink-0" />
-                  <a href="mailto:ieee@sode-edu.in" className="hover:text-white">ieee@sode-edu.in</a>
+                  <Mail className="h-5 w-5 shrink-0 text-primary" />
+                  <a href="mailto:ieee@sode-edu.in" className="hover:text-primary">ieee@sode-edu.in</a>
                 </li>
                  <li className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 shrink-0" />
-                  <a href="tel:+911234567890" className="hover:text-white">+91 123 456 7890</a>
+                  <Phone className="h-5 w-5 shrink-0 text-primary" />
+                  <a href="tel:+911234567890" className="hover:text-primary">+91 123 456 7890</a>
                 </li>
               </ul>
             </div>
              <div>
               <h3 className="font-semibold mb-4 text-lg">Quick Links</h3>
-              <ul className="space-y-2 text-primary-foreground/80">
-                <li><a href="#about" className="hover:text-white">About Us</a></li>
-                <li><a href="#events" className="hover:text-white">Events</a></li>
-                <li><a href="#achievements" className="hover:text-white">Achievements</a></li>
-                <li><a href="#office-bearers" className="hover:text-white">Office Bearers</a></li>
-                <li><a href="#publications" className="hover:text-white">Publications</a></li>
-                <li><a href="#news" className="hover:text-white">News</a></li>
+              <ul className="space-y-2 text-muted-foreground">
+                <li><a href="#about" className="hover:text-primary">About Us</a></li>
+                <li><a href="#events" className="hover:text-primary">Events</a></li>
+                <li><a href="#achievements" className="hover:text-primary">Achievements</a></li>
+                <li><a href="#office-bearers" className="hover:text-primary">Office Bearers</a></li>
+                <li><a href="#publications" className="hover:text-primary">Publications</a></li>
+                <li><a href="#news" className="hover:text-primary">News</a></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4 text-lg">Follow Us</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((link) => (
-                  <a key={link.name} href={link.href} className="text-primary-foreground/80 hover:text-white">
+                  <a key={link.name} href={link.href} className="text-muted-foreground hover:text-primary">
                     <span className="sr-only">{link.name}</span>
                     {link.icon}
                   </a>
@@ -64,7 +64,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-primary-foreground/20 pt-8 text-center text-primary-foreground/60">
+        <div className="mt-12 border-t border-border pt-8 text-center text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} SMVITM-IEEE Student Branch. All Rights Reserved.</p>
         </div>
       </div>
