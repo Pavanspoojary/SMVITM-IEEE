@@ -66,7 +66,7 @@ export function Header() {
                 fontFamily="Inter, sans-serif"
                 fontSize="24"
                 fontWeight="bold"
-                fill="hsl(var(--primary-foreground))"
+                fill="blue"
                 textAnchor="middle"
                 style={{ mixBlendMode: 'screen' }}
               >
