@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Book, Calendar, ChevronRight, CircuitBoard, Cpu, Goal, Megaphone, Newspaper, Trophy, Users } from 'lucide-react';
 import { events } from '@/app/data/events';
 import { news } from '@/app/data/news';
 import { achievements } from '@/app/data/achievements';
@@ -18,14 +18,13 @@ import { SocietyCard } from '@/components/society-card';
 import { societies } from '@/app/data/societies';
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#events', label: 'Events' },
-  { href: '#societies', label: 'Societies' },
-  { href: '#achievements', label: 'Achievements' },
-  { href: '#publications', label: 'Publications' },
-  { href: '#news', label: 'News' },
-  { href: '#office-bearers', label: 'Office Bearers' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#about', label: 'About', icon: Users },
+  { href: '#events', label: 'Events', icon: Megaphone },
+  { href: '#societies', label: 'Societies', icon: CircuitBoard },
+  { href: '#achievements', label: 'Achievements', icon: Trophy },
+  { href: '#publications', label: 'Publications', icon: Book },
+  { href: '#news', label: 'News', icon: Newspaper },
+  { href: '#office-bearers', label: 'Office Bearers', icon: Goal },
 ];
 
 
@@ -95,7 +94,7 @@ export default function Home() {
         </section>
 
         {/* Events Section */}
-        <section id="events" className="py-20 md:py-32 bg-background">
+        <section id="events" className="py-20 md:py-32 bg-card">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-center mb-16 text-foreground">
               Upcoming Events
@@ -109,7 +108,7 @@ export default function Home() {
         </section>
 
         {/* Societies Section */}
-        <section id="societies" className="py-20 md:py-32 bg-card">
+        <section id="societies" className="py-20 md:py-32 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-center mb-16 text-foreground">
               IEEE Societies
@@ -123,7 +122,7 @@ export default function Home() {
         </section>
 
         {/* Achievements Section */}
-        <section id="achievements" className="py-20 md:py-32 bg-background">
+        <section id="achievements" className="py-20 md:py-32 bg-card">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-center mb-16 text-foreground">
               Our Achievements
@@ -137,14 +136,14 @@ export default function Home() {
         </section>
 
         {/* Office Bearers Section */}
-        <section id="office-bearers" className="py-20 md:py-32 bg-card">
+        <section id="office-bearers" className="py-20 md:py-32 bg-background">
             <div className="container mx-auto px-4 md:px-6">
                 <OfficeBearersTable />
             </div>
         </section>
 
         {/* Publications Section */}
-        <section id="publications" className="py-20 md:py-32 bg-background">
+        <section id="publications" className="py-20 md:py-32 bg-card">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-center mb-16 text-foreground">
               Recent Publications
@@ -158,7 +157,7 @@ export default function Home() {
         </section>
 
         {/* News Section */}
-        <section id="news" className="py-20 md:py-32 bg-card">
+        <section id="news" className="py-20 md:py-32 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-center mb-16 text-foreground">
               News & Announcements
@@ -172,6 +171,24 @@ export default function Home() {
         </section>
       </main>
       <Footer />
+
+      {/* Floating Nav Bar */}
+      <div className="hidden md:flex fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+        <div className="bg-card/50 backdrop-blur-lg rounded-full border border-border/50 shadow-lg">
+          <nav className="flex items-center justify-center px-4 py-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-full"
+              >
+                <link.icon className="h-4 w-4" />
+                <span className="hidden lg:inline">{link.label}</span>
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </div>
     </div>
   );
 }
