@@ -77,6 +77,12 @@
       "description": "Image for an achievement",
       "imageUrl": "https://images.unsplash.com/photo-1758691736498-422201cc57da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb25mZXJlbmNlJTIwcHJlc2VudGF0aW9ufGVufDB8fHx8MTc1OTEzMzQzNHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "conference presentation"
+    },
+    {
+      "id": "achievement-4",
+      "description": "IEEE WIE Scholarship 2024 winners",
+      "imageUrl": "https://storage.googleapis.com/aai-web-samples/ieee-wie-scholarship-2024.jpg",
+      "imageHint": "students award"
     }
   ]
 }

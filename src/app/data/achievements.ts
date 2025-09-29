@@ -17,4 +17,10 @@ export const achievements = [
     description: 'A research paper by our members on novel machine learning algorithms won the best paper award.',
     image: 'achievement-3',
   },
+  {
+    title: 'IEEE WIE Scholarship',
+    year: '2024',
+    description: 'Seven students from SMVITM were selected for the prestigious IEEE Women in Engineering Scholarship by Quest Global.',
+    image: 'achievement-4',
+  },
 ];
