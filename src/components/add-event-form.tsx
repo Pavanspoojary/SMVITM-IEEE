@@ -16,6 +16,9 @@ import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import { Calendar } from './ui/calendar';
 import { useRouter }from 'next/navigation';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
+import { summarizeEventDetails } from '@/ai/flows/summarize-event-details';
 
 
 const eventFormSchema = z.object({
@@ -25,7 +28,8 @@ const eventFormSchema = z.object({
   }),
   venue: z.string().min(1, { message: 'Event venue is required' }),
   description: z.string().min(1, { message: 'Event description is required' }),
-  photos: z.custom<FileList>().refine((files) => files.length > 0, 'At least one photo is required.'),
+  // Photos are not handled yet.
+  // photos: z.custom<FileList>().refine((files) => files.length > 0, 'At least one photo is required.'),
 });
 
 type EventFormValues = z.infer<typeof eventFormSchema>;
@@ -49,12 +53,23 @@ export function AddEventForm() {
   const onSubmit = async (data: EventFormValues) => {
     setIsLoading(true);
     try {
+      // 1. Generate AI summary
+      const summaryResult = await summarizeEventDetails({ eventDetails: data.description });
+
+      // 2. Save the event data to Firestore
+      await addDoc(collection(db, 'events'), {
+        title: data.title,
+        date: data.date,
+        venue: data.venue,
+        description: data.description,
+        summary: summaryResult.summary,
+        createdAt: new Date(),
+      });
+      
       // Here you would handle the file upload to a service like Firebase Storage
       // and then save the event data (including image URLs) to your database.
       console.log('Event data:', data);
 
-      // Simulate API call and upload
-      await new Promise(resolve => setTimeout(resolve, 2000));
 
       toast({
         title: 'Event Created Successfully',
@@ -130,8 +145,8 @@ export function AddEventForm() {
 
           <div className="space-y-2">
             <Label htmlFor="photos">Event Photographs</Label>
-            <Input id="photos" type="file" {...register('photos')} multiple disabled={isLoading} accept="image/*" />
-            {errors.photos && <p className="text-sm text-destructive">{errors.photos.message as string}</p>}
+            <Input id="photos" type="file" multiple disabled={isLoading} accept="image/*" />
+            {/* {errors.photos && <p className="text-sm text-destructive">{errors.photos.message as string}</p>} */}
           </div>
 
           <Button type="submit" className="w-full" disabled={isLoading}>

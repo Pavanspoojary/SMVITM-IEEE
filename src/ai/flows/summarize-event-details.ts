@@ -39,8 +39,9 @@ const summarizeEventDetailsPrompt = ai.definePrompt({
   name: 'summarizeEventDetailsPrompt',
   input: {schema: SummarizeEventDetailsInputSchema},
   output: {schema: SummarizeEventDetailsOutputSchema},
-  prompt: `Summarize the following event details into a concise summary:
+  prompt: `Summarize the following event details into a concise, engaging, and friendly summary suitable for a notification to members. Focus on the key information and make it sound exciting.
 
+  Event Details:
   {{{eventDetails}}}`,
 });
 
