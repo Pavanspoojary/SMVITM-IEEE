@@ -83,6 +83,12 @@
       "description": "IEEE WIE Scholarship 2024 winners",
       "imageUrl": "https://storage.googleapis.com/aai-web-samples/ieee-wie-scholarship-2024.jpg",
       "imageHint": "students award"
+    },
+    {
+      "id": "achievement-5",
+      "description": "Certificate of recognition for excellent contribution to IEEE Mangalore Subsection",
+      "imageUrl": "https://storage.googleapis.com/aai-web-samples/ieee-mangalore-cert-2023.jpg",
+      "imageHint": "certificate award"
     }
   ]
 }
