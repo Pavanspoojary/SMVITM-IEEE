@@ -53,7 +53,7 @@ export function Header() {
                 d="M50,5 A45,45 0 1,0 50,95 A45,45 0 1,0 50,5 Z"
               />
             </svg>
-            <span className="text-2xl font-black">FLARE</span>
+            <span className="text-2xl font-black">SMVITM-IEEE</span>
         </Link>
         
 
