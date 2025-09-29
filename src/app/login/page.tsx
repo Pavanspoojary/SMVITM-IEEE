@@ -25,8 +25,7 @@ import {
 } from '@/components/ui/form';
 
 const loginSchema = z.object({
-  email: z.string().email({ message: 'Invalid email address' }),
-  ieeeId: z.string().min(1, { message: 'IEEE ID is required' }),
+  ieeeId: z.string().email({ message: 'Please enter a valid email for the IEEE ID.' }),
   password: z.string().min(6, { message: 'Password must be at least 6 characters' }),
   keepLoggedIn: z.boolean().optional(),
 });
@@ -39,7 +38,6 @@ export default function LoginPage() {
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: '',
       ieeeId: '',
       password: '',
       keepLoggedIn: false,
@@ -49,7 +47,7 @@ export default function LoginPage() {
   const onSubmit = async (data: LoginFormValues) => {
     setIsLoading(true);
     try {
-      await signInWithEmailAndPassword(auth, data.email, data.password);
+      await signInWithEmailAndPassword(auth, data.ieeeId, data.password);
       toast({ title: 'Login Successful', description: "You're now logged in." });
       router.push('/dashboard');
     } catch (error: any) {
@@ -81,7 +79,7 @@ export default function LoginPage() {
             {/* Left Panel */}
             <div className="hidden md:flex flex-col justify-between p-12 bg-card/50 text-card-foreground">
                 <div>
-                    <h2 className="text-3xl font-bold mb-4">Welcome!</h2>
+                    <h2 className="text-3xl font-bold mb-4">Welcome Back!</h2>
                     <div className="flex items-center gap-4">
                         <span className="text-8xl font-black">W.</span>
                          <svg
@@ -104,7 +102,7 @@ export default function LoginPage() {
                 </div>
                  <p className="text-sm text-muted-foreground">
                     Not a member yet?{' '}
-                    <Link href="#" className="font-semibold text-primary hover:underline">
+                    <Link href="/register" className="font-semibold text-primary hover:underline">
                         Register now
                     </Link>
                 </p>
@@ -117,33 +115,14 @@ export default function LoginPage() {
                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                      <FormField
                        control={form.control}
-                       name="email"
+                       name="ieeeId"
                        render={({ field }) => (
                          <FormItem>
-                           <FormLabel className="text-muted-foreground">Email</FormLabel>
+                           <FormLabel className="text-muted-foreground">IEEE ID (Email)</FormLabel>
                            <FormControl>
                              <Input
                                type="email"
                                placeholder="m@example.com"
-                               {...field}
-                               disabled={isLoading}
-                               className="bg-muted/50 border-0 focus:bg-card"
-                             />
-                           </FormControl>
-                           <FormMessage />
-                         </FormItem>
-                       )}
-                     />
-                     <FormField
-                       control={form.control}
-                       name="ieeeId"
-                       render={({ field }) => (
-                         <FormItem>
-                           <FormLabel className="text-muted-foreground">IEEE ID</FormLabel>
-                           <FormControl>
-                             <Input
-                               type="text"
-                               placeholder="Enter your IEEE ID"
                                {...field}
                                disabled={isLoading}
                                className="bg-muted/50 border-0 focus:bg-card"
@@ -220,7 +199,7 @@ export default function LoginPage() {
                 </div>
                  <p className="mt-8 text-center text-sm text-muted-foreground md:hidden">
                     Not a member yet?{' '}
-                    <Link href="#" className="font-semibold text-primary hover:underline">
+                    <Link href="/register" className="font-semibold text-primary hover:underline">
                         Register now
                     </Link>
                 </p>
