@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -38,8 +37,8 @@ export function Header() {
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
-          <Image src="https://firebasestorage.googleapis.com/v0/b/studio-8253008489-748df.appspot.com/o/images%2Fsmvitm-logo-new.png?alt=media&token=d16504a7-8575-4309-8877-b67a4214227c" alt="SMVITM Logo" width={64} height={64} className="h-16 w-auto" />
+        <Link href="/" className="flex items-center font-bold text-xl text-primary">
+          SMVITM-IEEE
         </Link>
         <div className="flex items-center gap-2">
            <Button asChild variant="outline" size="sm">
