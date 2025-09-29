@@ -55,14 +55,13 @@ export function Header() {
                   <stop offset="0%" style={{ stopColor: 'hsl(var(--primary))', stopOpacity: 1 }} />
                   <stop offset="100%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
                 </linearGradient>
+                 <path id="curve" d="M 25 60 A 30 30 0 0 1 75 60" />
               </defs>
               <path
                 fill="url(#logo-gradient)"
                 d="M50,5 A45,45 0 1,0 50,95 A45,45 0 1,0 50,5 Z M50,15 A35,35 0 1,1 50,85 A35,35 0 1,1 50,15 Z"
               />
               <text
-                x="50"
-                y="58"
                 fontFamily="Inter, sans-serif"
                 fontSize="20"
                 fontWeight="bold"
@@ -70,7 +69,9 @@ export function Header() {
                 textAnchor="middle"
                 style={{ mixBlendMode: 'screen' }}
               >
-                SMVITM
+                <textPath href="#curve" startOffset="50%">
+                    SMVITM
+                </textPath>
               </text>
               <text
                 x="50"
