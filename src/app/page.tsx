@@ -52,14 +52,6 @@ export default function Home() {
                 <p className="text-lg md:text-xl max-w-3xl mx-auto text-foreground/70 mb-10 animate-fade-in-up">
                   Advancing Technology for Humanity. Your journey into the world of engineering and innovation starts here.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" className="bg-primary text-primary-foreground font-bold hover:bg-primary/90 animate-fade-in rounded-full px-8 text-lg shadow-[0_0_20px_theme(colors.primary)]">
-                    Get Started <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                    <Button size="lg" variant="outline" className="bg-transparent text-foreground hover:bg-white/10 hover:text-white border-white/20 animate-fade-in rounded-full px-8 text-lg">
-                        Learn More
-                    </Button>
-                </div>
             </div>
           </div>
         </section>
