@@ -1,5 +1,11 @@
 export const achievements = [
   {
+    title: 'IEEE WIE Scholarship',
+    year: '2024',
+    description: 'Seven students from SMVITM were selected for the prestigious IEEE Women in Engineering Scholarship by Quest Global.',
+    image: 'achievement-4',
+  },
+  {
     title: 'Winner - IEEE Regional Exemplary Student Branch Award',
     year: '2023',
     description: 'Recognized for outstanding activities and contributions to the IEEE community.',
@@ -16,12 +22,6 @@ export const achievements = [
     year: '2022',
     description: 'A research paper by our members on novel machine learning algorithms won the best paper award.',
     image: 'achievement-3',
-  },
-  {
-    title: 'IEEE WIE Scholarship',
-    year: '2024',
-    description: 'Seven students from SMVITM were selected for the prestigious IEEE Women in Engineering Scholarship by Quest Global.',
-    image: 'achievement-4',
   },
   {
     title: 'Excellent Contribution to IEEE Mangalore Subsection',
