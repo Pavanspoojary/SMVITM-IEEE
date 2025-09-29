@@ -37,12 +37,12 @@ export default function Home() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center text-center text-white">
-            <div className="absolute inset-0 bg-black overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background"></div>
-                <div 
-                    className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,255,255,0.15)_0%,_rgba(0,0,0,0)_60%)]"
-                />
-            </div>
+           <div className="absolute inset-0 bg-black overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-background via-background/50 to-background/20"></div>
+              <div 
+                  className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,255,255,0.25)_0%,_rgba(0,0,0,0)_50%)] animate-pulse"
+              />
+          </div>
           <div className="relative z-10 container mx-auto px-4 md:px-6 flex flex-col h-full justify-center">
             <div className='flex flex-col items-center justify-center flex-grow'>
                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 animate-fade-in-down bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
