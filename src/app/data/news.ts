@@ -1,6 +1,6 @@
 export const news = [
   {
-    title: 'IEEE NITK wins "Best Student Branch" award',
+    title: 'IEEE SMVITM wins "Best Student Branch" award',
     date: 'September 15, 2024',
     summary: 'Our student branch was recognized as the best in the region for our continuous efforts in promoting technology and innovation.',
     image: 'news-1',
