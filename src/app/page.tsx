@@ -14,10 +14,13 @@ import { AchievementCard } from '@/components/achievement-card';
 import { PublicationCard } from '@/components/publication-card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { OfficeBearersTable } from '@/components/office-bearers-table';
+import { SocietyCard } from '@/components/society-card';
+import { societies } from '@/app/data/societies';
 
 const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#events', label: 'Events' },
+  { href: '#societies', label: 'Societies' },
   { href: '#achievements', label: 'Achievements' },
   { href: '#publications', label: 'Publications' },
   { href: '#news', label: 'News' },
@@ -118,8 +121,22 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Societies Section */}
+        <section id="societies" className="py-16 md:py-24 bg-background">
+          <div className="container mx-auto px-4 md:px-6">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-center mb-12 text-primary">
+              IEEE Societies
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {societies.map((society, index) => (
+                <SocietyCard key={index} {...society} />
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Achievements Section */}
-        <section id="achievements" className="py-16 md:py-24 bg-background">
+        <section id="achievements" className="py-16 md:py-24 bg-card">
           <div className="container mx-auto px-4 md:px-6">
             <h2 className="text-3xl md:text-4xl font-bold font-headline text-center mb-12 text-primary">
               Our Achievements
