@@ -42,16 +42,15 @@ export default function Home() {
               <div 
                   className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,255,255,0.25)_0%,_rgba(0,0,0,0)_50%)] animate-pulse"
               />
+               <div className="absolute inset-0 bg-gradient-to-t from-transparent to-background"></div>
           </div>
           <div className="relative z-10 container mx-auto px-4 md:px-6 flex flex-col h-full justify-center">
             <div className='flex flex-col items-center justify-center flex-grow'>
                 <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 animate-fade-in-down bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
-                    Smarter Investing,
-                    <br />
-                    <span className="text-primary">Faster Updates</span>
+                    SMVITM-IEEE Student Branch
                 </h1>
                 <p className="text-lg md:text-xl max-w-3xl mx-auto text-foreground/70 mb-10 animate-fade-in-up">
-                  Instant market updates and core features for smarter trading. Your journey to financial freedom starts here.
+                  Advancing Technology for Humanity. Your journey into the world of engineering and innovation starts here.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                     <Button size="lg" className="bg-primary text-primary-foreground font-bold hover:bg-primary/90 animate-fade-in rounded-full px-8 text-lg shadow-[0_0_20px_theme(colors.primary)]">
