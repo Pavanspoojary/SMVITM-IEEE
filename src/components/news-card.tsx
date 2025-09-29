@@ -14,7 +14,7 @@ export function NewsCard({ title, date, summary, image }: NewsCardProps) {
   const placeholder = PlaceHolderImages.find(p => p.id === image);
 
   return (
-    <Card className="overflow-hidden transition-shadow hover:shadow-xl bg-card border-border/50 hover:shadow-primary/20 group">
+    <Card className="glass-card overflow-hidden transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10 group">
       {placeholder && (
         <div className="relative h-48 w-full">
           <Image
@@ -28,7 +28,7 @@ export function NewsCard({ title, date, summary, image }: NewsCardProps) {
       )}
       <CardHeader>
         <CardTitle className="font-bold text-lg">{title}</CardTitle>
-        <Badge variant="secondary" className="w-fit mt-2 bg-secondary/50 text-secondary-foreground">{date}</Badge>
+        <Badge variant="secondary" className="w-fit mt-2 bg-primary/20 text-primary border-none">{date}</Badge>
       </CardHeader>
       <CardContent>
         <p className="text-muted-foreground text-sm">{summary}</p>

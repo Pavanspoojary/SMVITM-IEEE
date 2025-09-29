@@ -11,7 +11,7 @@ type EventCardProps = {
 
 export function EventCard({ title, date, time, venue, description }: EventCardProps) {
   return (
-    <Card className="flex flex-col h-full transition-transform transform hover:-translate-y-2 hover:shadow-primary/20 shadow-lg bg-card border-border/50">
+    <Card className="glass-card flex flex-col h-full transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10">
       <CardHeader>
         <CardTitle className="font-bold text-xl text-foreground">{title}</CardTitle>
       </CardHeader>

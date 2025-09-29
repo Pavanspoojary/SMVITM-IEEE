@@ -11,7 +11,7 @@ type PublicationCardProps = {
 
 export function PublicationCard({ title, authors, conference, link }: PublicationCardProps) {
   return (
-    <Card className="group transition-all duration-300 ease-in-out hover:bg-card hover:shadow-primary/20 border-border/50 shadow-md">
+    <Card className="group glass-card transition-all duration-300 ease-in-out hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10">
       <a href={link} target="_blank" rel="noopener noreferrer">
         <CardContent className="p-4 md:p-6 grid grid-cols-[auto_1fr_auto] items-center gap-6">
           <div className="text-primary pr-4 hidden md:block">

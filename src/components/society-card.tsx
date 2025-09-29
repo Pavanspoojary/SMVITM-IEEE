@@ -12,7 +12,7 @@ export function SocietyCard({ name, description, image }: SocietyCardProps) {
   const placeholder = PlaceHolderImages.find(p => p.id === image);
 
   return (
-    <Card className="flex flex-col h-full overflow-hidden transition-transform transform hover:-translate-y-2 hover:shadow-primary/20 shadow-lg bg-background border-border/50 group">
+    <Card className="glass-card flex flex-col h-full overflow-hidden transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10 group">
       {placeholder && (
         <div className="relative h-48 w-full">
           <Image

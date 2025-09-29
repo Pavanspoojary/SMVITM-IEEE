@@ -31,8 +31,8 @@ export function Header() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300',
-        isScrolled ? 'bg-background/80 backdrop-blur-lg border-b' : 'bg-transparent'
+        'fixed top-0 z-50 w-full transition-all duration-300',
+        isScrolled ? 'bg-background/80 backdrop-blur-lg border-b border-white/10' : 'bg-transparent'
       )}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
@@ -58,9 +58,9 @@ export function Header() {
         
 
         <div className="flex items-center justify-end gap-2">
-           <Button asChild variant="default" size="sm" className="rounded-full bg-primary hover:bg-primary/90">
+           <Button asChild variant="default" size="sm" className="rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 shadow-[0_0_15px_theme(colors.primary)]">
             <Link href="/login">
-              Contact Us
+              Login
               <LogIn className="ml-2 h-4 w-4" />
             </Link>
           </Button>
@@ -73,7 +73,7 @@ export function Header() {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden bg-background border-t">
+        <div className="md:hidden bg-background/95 backdrop-blur-lg border-t border-white/10">
           <nav className="flex flex-col items-center gap-4 p-4">
             {navLinks.map((link) => (
               <Link

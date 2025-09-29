@@ -10,13 +10,13 @@ import { officeBearers, OfficeBearer } from '@/app/data/office-bearers';
 
 export function OfficeBearersTable() {
   return (
-    <div className="rounded-lg border border-border/50 overflow-hidden bg-card shadow-lg">
+    <div className="glass-card overflow-hidden">
         <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-center my-12 md:my-16 text-foreground">
             IEEE STUDENT BRANCH OFFICE BEARERS – 2024-25
         </h2>
       <Table>
         <TableHeader>
-          <TableRow className="bg-muted/30 hover:bg-muted/40 border-b-border/50">
+          <TableRow className="border-b-white/10 hover:bg-white/5">
             <TableHead className="w-[100px] text-foreground font-bold">Sl. No.</TableHead>
             <TableHead className="text-foreground font-bold">USN</TableHead>
             <TableHead className="text-foreground font-bold">Name</TableHead>
@@ -27,7 +27,7 @@ export function OfficeBearersTable() {
         </TableHeader>
         <TableBody>
           {officeBearers.map((bearer: OfficeBearer) => (
-            <TableRow key={bearer.slNo} className="border-border/50">
+            <TableRow key={bearer.slNo} className="border-white/10">
               <TableCell className="font-medium text-muted-foreground">{bearer.slNo}</TableCell>
               <TableCell>{bearer.usn}</TableCell>
               <TableCell className="font-medium">{bearer.name}</TableCell>

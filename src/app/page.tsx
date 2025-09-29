@@ -18,13 +18,13 @@ import { SocietyCard } from '@/components/society-card';
 import { societies } from '@/app/data/societies';
 
 const navLinks = [
-  { href: '#about', label: 'About', icon: Users },
-  { href: '#events', label: 'Events', icon: Megaphone },
-  { href: '#societies', label: 'Societies', icon: CircuitBoard },
+  { href: '#about', label: 'About', icon: Goal },
+  { href: '#events', label: 'Events', icon: Calendar },
+  { href: '#societies', label: 'Societies', icon: Users },
   { href: '#achievements', label: 'Achievements', icon: Trophy },
   { href: '#publications', label: 'Publications', icon: Book },
   { href: '#news', label: 'News', icon: Newspaper },
-  { href: '#office-bearers', label: 'Office Bearers', icon: Goal },
+  { href: '#office-bearers', label: 'Office Bearers', icon: CircuitBoard },
 ];
 
 
@@ -36,35 +36,41 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative h-[80vh] md:h-[90vh] flex items-center justify-center text-center text-white bg-black">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-30"
-                style={{backgroundImage: "url('https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",}}
-                data-ai-hint="engineering circuit board"
-            ></div>
-             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
-          <div className="relative z-10 container mx-auto px-4 md:px-6 flex flex-col h-full justify-center pt-24 pb-12">
-            <div className='flex flex-col items-center justify-center flex-grow'>
-                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 animate-fade-in-down">
-                SMVITM-IEEE <span className="text-primary">Student Branch</span>
-                </h1>
-                <p className="text-lg md:text-xl max-w-3xl mx-auto text-foreground/80 mb-10 animate-fade-in-up">
-                Fostering Technological Innovation and Excellence for the next generation of engineers.
-                </p>
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 animate-fade-in rounded-full px-8 text-lg">
-                Join Us <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+        <section className="relative h-screen flex items-center justify-center text-center text-white">
+            <div className="absolute inset-0 bg-black overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background"></div>
+                <div 
+                    className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,255,255,0.15)_0%,_rgba(0,0,0,0)_60%)]"
+                />
             </div>
-            
+          <div className="relative z-10 container mx-auto px-4 md:px-6 flex flex-col h-full justify-center">
+            <div className='flex flex-col items-center justify-center flex-grow'>
+                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 animate-fade-in-down bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300">
+                    Smarter Investing,
+                    <br />
+                    <span className="text-primary">Faster Updates</span>
+                </h1>
+                <p className="text-lg md:text-xl max-w-3xl mx-auto text-foreground/70 mb-10 animate-fade-in-up">
+                  Instant market updates and core features for smarter trading. Your journey to financial freedom starts here.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                    <Button size="lg" className="bg-primary text-primary-foreground font-bold hover:bg-primary/90 animate-fade-in rounded-full px-8 text-lg shadow-[0_0_20px_theme(colors.primary)]">
+                    Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                    <Button size="lg" variant="outline" className="bg-transparent text-foreground hover:bg-white/10 hover:text-white border-white/20 animate-fade-in rounded-full px-8 text-lg">
+                        Learn More
+                    </Button>
+                </div>
+            </div>
           </div>
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 md:py-32 bg-transparent">
+        <section id="about" className="py-20 md:py-32">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 text-foreground">About SMVITM-IEEE</h2>
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">About SMVITM-IEEE</h2>
                 <div className="space-y-6 text-muted-foreground leading-relaxed text-lg">
                   <p>
                     The IEEE student branch of SMVITM (STB10147), under the Bangalore Section and Mangalore Sub-Section in Region 10, is a hub of technical and professional growth. We organize workshops, seminars, and competitions to keep students at the forefront of technology and engineering.
@@ -77,14 +83,14 @@ export default function Home() {
                   Learn more about IEEE <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
-              <div className="rounded-lg overflow-hidden shadow-2xl shadow-primary/20">
+              <div className="glass-card p-2">
                 {aboutImage && (
                   <Image
                     src={aboutImage.imageUrl}
                     alt={aboutImage.description}
                     width={800}
                     height={600}
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-full rounded-lg"
                     data-ai-hint={aboutImage.imageHint}
                   />
                 )}
@@ -94,9 +100,9 @@ export default function Home() {
         </section>
 
         {/* Events Section */}
-        <section id="events" className="py-20 md:py-32 bg-card">
+        <section id="events" className="py-20 md:py-32">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-center mb-16 text-foreground">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16 text-foreground">
               Upcoming Events
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -108,9 +114,9 @@ export default function Home() {
         </section>
 
         {/* Societies Section */}
-        <section id="societies" className="py-20 md:py-32 bg-background">
+        <section id="societies" className="py-20 md:py-32">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-center mb-16 text-foreground">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16 text-foreground">
               IEEE Societies
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -122,9 +128,9 @@ export default function Home() {
         </section>
 
         {/* Achievements Section */}
-        <section id="achievements" className="py-20 md:py-32 bg-card">
+        <section id="achievements" className="py-20 md:py-32">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-center mb-16 text-foreground">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16 text-foreground">
               Our Achievements
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -136,16 +142,16 @@ export default function Home() {
         </section>
 
         {/* Office Bearers Section */}
-        <section id="office-bearers" className="py-20 md:py-32 bg-background">
+        <section id="office-bearers" className="py-20 md:py-32">
             <div className="container mx-auto px-4 md:px-6">
                 <OfficeBearersTable />
             </div>
         </section>
 
         {/* Publications Section */}
-        <section id="publications" className="py-20 md:py-32 bg-card">
+        <section id="publications" className="py-20 md:py-32">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-center mb-16 text-foreground">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16 text-foreground">
               Recent Publications
             </h2>
             <div className="space-y-4">
@@ -157,9 +163,9 @@ export default function Home() {
         </section>
 
         {/* News Section */}
-        <section id="news" className="py-20 md:py-32 bg-background">
+        <section id="news" className="py-20 md:py-32">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-center mb-16 text-foreground">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-16 text-foreground">
               News & Announcements
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

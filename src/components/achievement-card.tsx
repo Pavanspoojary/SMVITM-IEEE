@@ -14,7 +14,7 @@ export function AchievementCard({ title, year, description, image }: Achievement
   const placeholder = PlaceHolderImages.find(p => p.id === image);
 
   return (
-    <Card className="flex flex-col md:flex-row items-center gap-6 p-6 h-full overflow-hidden transition-transform transform hover:-translate-y-1 hover:shadow-xl bg-card border-border/50 hover:shadow-primary/20 group">
+    <Card className="glass-card flex flex-col md:flex-row items-center gap-6 p-6 h-full overflow-hidden transition-all duration-300 hover:border-primary/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-primary/10 group">
       {placeholder && (
         <div className="relative h-48 md:h-full md:w-1/3 w-full shrink-0 rounded-lg overflow-hidden">
           <Image
@@ -28,7 +28,7 @@ export function AchievementCard({ title, year, description, image }: Achievement
       )}
       <div className="flex-grow">
         <CardHeader className="p-0">
-          <Badge variant="secondary" className="w-fit mb-2 bg-secondary/50 text-secondary-foreground">{year}</Badge>
+          <Badge variant="secondary" className="w-fit mb-2 bg-primary/20 text-primary border-none">{year}</Badge>
           <CardTitle className="font-bold text-xl flex-grow">{title}</CardTitle>
         </CardHeader>
         <CardContent className="p-0 mt-4">
