@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'IEEE NITK Portal',
-  description: 'Homepage for the IEEE Student Branch at NITK',
+  title: 'SMVITM-IEEE Portal',
+  description: 'Homepage for the IEEE Student Branch at SMVITM',
 };
 
 export default function RootLayout({

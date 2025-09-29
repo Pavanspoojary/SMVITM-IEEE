@@ -32,10 +32,10 @@ export default function Home() {
              <div className="absolute inset-0 bg-primary/50 "></div>
           <div className="relative z-10 container mx-auto px-4 md:px-6">
             <h1 className="text-4xl md:text-6xl font-extrabold font-headline tracking-tight mb-4 animate-fade-in-down">
-              IEEE Student Branch NITK
+              SMVITM-IEEE Student Branch
             </h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto text-primary-foreground/80 mb-8 animate-fade-in-up">
-              Fostering Technological Innovation and Excellence Since 1989
+              Fostering Technological Innovation and Excellence
             </p>
             <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 animate-fade-in">
               Join Us <ArrowRight className="ml-2 h-5 w-5" />
@@ -48,9 +48,9 @@ export default function Home() {
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4 text-primary">About IEEE NITK</h2>
+                <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4 text-primary">About SMVITM-IEEE</h2>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  The IEEE Student Branch at NITK Surathkal is one of the most active student branches in the Mangalore Subsection. Established in 1989, we are dedicated to providing students with opportunities for technical and professional development.
+                  The IEEE Student Branch at SMVITM is one of the most active student branches in the Mangalore Subsection. We are dedicated to providing students with opportunities for technical and professional development.
                 </p>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   We organize a wide range of events, including workshops, seminars, competitions, and industrial visits, to help students stay updated with the latest trends in technology and engineering. Our mission is to inspire innovation, encourage collaboration, and build a community of passionate learners.

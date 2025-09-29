@@ -15,10 +15,10 @@ export function Footer() {
           <div className="flex flex-col gap-4">
              <Link href="/" className="flex items-center gap-2 font-bold text-xl">
               <BotMessageSquare className="h-7 w-7" />
-              <span className='font-headline'>IEEE NITK Portal</span>
+              <span className='font-headline'>SMVITM-IEEE Portal</span>
             </Link>
             <p className="text-primary-foreground/80 max-w-sm">
-              Fostering technological innovation and professional growth among students at NITK Surathkal.
+              Fostering technological innovation and professional growth among students at SMVITM.
             </p>
           </div>
           <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -27,11 +27,11 @@ export function Footer() {
               <ul className="space-y-3 text-primary-foreground/80">
                 <li className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 mt-1 shrink-0" />
-                  <span>National Institute of Technology Karnataka, Surathkal, Mangalore - 575025</span>
+                  <span>Shri Madhwa Vadiraja Institute of Technology and Management, Bantakal, Udupi - 574115</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-5 w-5 shrink-0" />
-                  <a href="mailto:ieee@nitk.edu.in" className="hover:text-white">ieee@nitk.edu.in</a>
+                  <a href="mailto:ieee@sode-edu.in" className="hover:text-white">ieee@sode-edu.in</a>
                 </li>
                  <li className="flex items-center gap-3">
                   <Phone className="h-5 w-5 shrink-0" />
@@ -64,7 +64,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-primary-foreground/20 pt-8 text-center text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} IEEE Student Branch NITK. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} SMVITM-IEEE Student Branch. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
