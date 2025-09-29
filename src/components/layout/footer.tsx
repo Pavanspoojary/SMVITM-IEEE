@@ -16,7 +16,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex flex-col gap-4">
              <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-               <Image src="https://firebasestorage.googleapis.com/v0/b/studio-8253008489-748df.appspot.com/o/images%2Fsmvitm-logo.png?alt=media&token=a3b2b5f7-4638-4014-b803-34b7f8045620" alt="SMVITM Logo" width={64} height={64} className="h-16 w-auto" />
+               <Image src="https://firebasestorage.googleapis.com/v0/b/studio-8253008489-748df.appspot.com/o/images%2Fsmvitm-logo-new.png?alt=media&token=d16504a7-8575-4309-8877-b67a4214227c" alt="SMVITM Logo" width={64} height={64} className="h-16 w-auto" />
             </Link>
             <p className="text-primary-foreground/80 max-w-sm">
               Fostering technological innovation and professional growth among students at SMVITM.
