@@ -44,6 +44,8 @@ export function Footer() {
               <ul className="space-y-2 text-primary-foreground/80">
                 <li><a href="#about" className="hover:text-white">About Us</a></li>
                 <li><a href="#events" className="hover:text-white">Events</a></li>
+                <li><a href="#achievements" className="hover:text-white">Achievements</a></li>
+                <li><a href="#publications" className="hover:text-white">Publications</a></li>
                 <li><a href="#news" className="hover:text-white">News</a></li>
                 <li><a href="#team" className="hover:text-white">Our Team</a></li>
               </ul>
