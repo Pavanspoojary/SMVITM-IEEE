@@ -6,12 +6,10 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { events } from '@/app/data/events';
 import { news } from '@/app/data/news';
-import { teamMembers } from '@/app/data/team';
 import { achievements } from '@/app/data/achievements';
 import { publications } from '@/app/data/publications';
 import { EventCard } from '@/components/event-card';
 import { NewsCard } from '@/components/news-card';
-import { TeamMemberCard } from '@/components/team-member-card';
 import { AchievementCard } from '@/components/achievement-card';
 import { PublicationCard } from '@/components/publication-card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -22,7 +20,6 @@ const navLinks = [
   { href: '#achievements', label: 'Achievements' },
   { href: '#publications', label: 'Publications' },
   { href: '#news', label: 'News' },
-  { href: '#team', label: 'Team' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -156,20 +153,6 @@ export default function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {news.map((item, index) => (
                 <NewsCard key={index} {...item} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Team Section */}
-        <section id="team" className="py-16 md:py-24 bg-card">
-          <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-center mb-12 text-primary">
-              Meet Our Team
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8">
-              {teamMembers.map((member, index) => (
-                <TeamMemberCard key={index} {...member} />
               ))}
             </div>
           </div>
