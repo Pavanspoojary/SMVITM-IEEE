@@ -55,16 +55,21 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted/40 p-4 relative">
-       <div className="absolute top-4 left-4">
+    <div className="flex min-h-screen items-center justify-center bg-background p-4 relative">
+      <div className="absolute inset-0 bg-black overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background"></div>
+          <div className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,255,255,0.15)_0%,_rgba(0,0,0,0)_60%)]"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent to-background"></div>
+      </div>
+       <div className="absolute top-4 left-4 z-10">
         <Button asChild variant="ghost" className="text-foreground/80 hover:text-primary">
           <Link href="/">&larr; Back to Home</Link>
         </Button>
       </div>
-      <Card className="w-full max-w-4xl overflow-hidden shadow-2xl rounded-2xl">
+      <Card className="w-full max-w-4xl overflow-hidden shadow-2xl rounded-2xl z-10 glass-card">
         <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left Panel */}
-            <div className="hidden md:flex flex-col justify-between p-12 bg-card text-card-foreground">
+            <div className="hidden md:flex flex-col justify-between p-12 bg-card/50 text-card-foreground">
                 <div>
                     <h2 className="text-3xl font-bold mb-4">Welcome!</h2>
                     <div className="flex items-center gap-4">
@@ -96,7 +101,7 @@ export default function LoginPage() {
             </div>
 
             {/* Right Panel - Form */}
-            <div className="bg-background p-8 md:p-12">
+            <div className="bg-background/50 p-8 md:p-12">
                  <h2 className="text-3xl font-bold mb-8 text-foreground">Log in</h2>
                  <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="space-y-6">
@@ -180,5 +185,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
-    

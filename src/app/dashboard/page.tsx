@@ -18,15 +18,20 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-       <header className="sticky top-0 z-40 border-b bg-background">
+    <div className="flex min-h-screen flex-col bg-background relative">
+      <div className="absolute inset-0 bg-black overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background"></div>
+          <div className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[200%] h-[200%] bg-[radial-gradient(ellipse_50%_50%_at_50%_50%,_rgba(0,255,255,0.15)_0%,_rgba(0,0,0,0)_60%)]"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent to-background"></div>
+      </div>
+       <header className="sticky top-0 z-40 border-b bg-transparent">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
             <h1 className="text-xl font-bold">Member Dashboard</h1>
             <Button onClick={signOut} variant="outline">Logout</Button>
         </div>
        </header>
 
-      <main className="flex-1 p-4 md:p-8">
+      <main className="flex-1 p-4 md:p-8 z-10">
         <div className="container mx-auto">
           <div className="mb-8 flex items-center justify-between">
             <h2 className="text-2xl font-bold">Your Space</h2>
@@ -37,7 +42,7 @@ export default function DashboardPage() {
               </Link>
             </Button>
           </div>
-            <Card>
+            <Card className="glass-card">
                 <CardHeader>
                     <CardTitle>Welcome, {user.email}</CardTitle>
                     <CardDescription>This is your member dashboard. More features coming soon!</CardDescription>
